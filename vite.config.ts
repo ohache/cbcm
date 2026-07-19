@@ -10,6 +10,8 @@ export default defineConfig({
     tailwindcss(),
   ],
 
+  base: '/cbcm/',
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
