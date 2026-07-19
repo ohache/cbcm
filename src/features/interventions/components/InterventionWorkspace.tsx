@@ -7,6 +7,7 @@ import { loadIntervention } from '@/features/interventions/data/loadIntervention
 import { useInterventionSession } from '@/features/interventions/hooks/useInterventionSession'
 import type { InterventionsOutletContext } from '@/features/interventions/pages/InterventionsPage'
 import type { Intervention } from '@/features/interventions/types/intervention.types'
+import { InterventionSheetModal } from '@/features/interventions/components/InterventionSheetModal'
 
 type LoadingStatus = 'loading' | 'ready' | 'not-found' | 'error'
 
@@ -18,6 +19,10 @@ interface InterventionContentProps {
 
 function InterventionContent({ intervention }: InterventionContentProps) {
   const { setTranscript } = useOutletContext<InterventionsOutletContext>()
+
+  const [isSheetModalOpen, setIsSheetModalOpen] = useState(false)
+
+  const sheetImageSrc = `${import.meta.env.BASE_URL}fichas/${intervention.id}.png`
 
   const previousGeneratedTranscript = useRef('')
 
@@ -70,7 +75,10 @@ function InterventionContent({ intervention }: InterventionContentProps) {
           </h1>
         </div>
 
-        <AlarmLevelIndicator level={alarmLevel} />
+        <AlarmLevelIndicator
+          level={alarmLevel}
+          onClick={() => setIsSheetModalOpen(true)}
+        />
       </header>
 
       <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 overflow-hidden lg:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)]">
@@ -94,16 +102,20 @@ function InterventionContent({ intervention }: InterventionContentProps) {
           </div>
         </div>
       </div>
+
+      {isSheetModalOpen && (
+        <InterventionSheetModal
+          title={intervention.title}
+          alarmLevel={alarmLevel}
+          imageSrc={sheetImageSrc}
+          onClose={() => setIsSheetModalOpen(false)}
+        />
+      )}
     </section>
   )
 }
 
-/*
- * Zona de trabajo de una intervención seleccionada.
- *
- * De momento solo prepara la distribución general. Más adelante sustituiremos
- * cada bloque provisional por su componente específico.
- */
+/* Zona de trabajo de una intervención seleccionada */
 export function InterventionWorkspace() {
   const { interventionId } = useParams<{ interventionId: string }>()
   const [intervention, setIntervention] = useState<Intervention>()
