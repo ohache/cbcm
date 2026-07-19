@@ -1,11 +1,11 @@
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createHashRouter, Navigate } from 'react-router'
 import { MainLayout } from '@/layouts/MainLayout'
 import { InterventionsPage } from '@/features/interventions/pages/InterventionsPage'
 import { InterventionsPanel } from '@/features/interventions/components/InterventionsPanel'
 import { InterventionWorkspace } from '@/features/interventions/components/InterventionWorkspace'
 
 /* Enrutador principal de la aplicación */
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     element: <MainLayout />,
 
