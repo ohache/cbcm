@@ -1,0 +1,22 @@
+Total: 20
+
+-  `src/App.tsx`
+-  `src/app/router.tsx`
+-  `src/components/layout/TopBar.tsx`
+-  `src/features/interventions/components/AdvicePanel.tsx`
+-  `src/features/interventions/components/AlarmLevelIndicator.tsx`
+-  `src/features/interventions/components/InterventionCard.tsx`
+-  `src/features/interventions/components/InterventionsPanel.tsx`
+-  `src/features/interventions/components/InterventionWorkspace.tsx`
+-  `src/features/interventions/components/QuestionItem.tsx`
+-  `src/features/interventions/components/QuestionsPanel.tsx`
+-  `src/features/interventions/components/TranscriptArea.tsx`
+-  `src/features/interventions/data/generated/incendio-vivienda.json`
+-  `src/features/interventions/data/generated/index.json`
+-  `src/features/interventions/data/loadIntervention.ts`
+-  `src/features/interventions/hooks/useInterventionSession.ts`
+-  `src/features/interventions/pages/InterventionsPage.tsx`
+-  `src/features/interventions/types/intervention.types.ts`
+-  `src/index.css`
+-  `src/layouts/MainLayout.tsx`
+-  `src/main.tsx`
