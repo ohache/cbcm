@@ -19,7 +19,7 @@
           "adviceIds": [
             "zona-segura"
           ],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         },
         {
           "id": "viviendas-dos",
@@ -30,7 +30,7 @@
           "adviceIds": [
             "zona-segura"
           ],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         },
         {
           "id": "viviendas-tres-mas",
@@ -41,14 +41,59 @@
           "adviceIds": [
             "zona-segura"
           ],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         }
       ],
-      "source": "Ficha p. 21"
+      "source": "Procedimiento CERO, ficha p. 21"
+    },
+    {
+      "id": "q-tipo-vivienda",
+      "order": 20,
+      "text": "¿De qué tipo de vivienda se trata?",
+      "required": true,
+      "options": [
+        {
+          "id": "tipo-unifamiliar",
+          "order": 10,
+          "label": "Unifamiliar",
+          "transcriptText": "Se trata de una vivienda unifamiliar.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "tipo-adosada",
+          "order": 20,
+          "label": "Adosada",
+          "transcriptText": "Se trata de una vivienda adosada.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "tipo-bloque",
+          "order": 30,
+          "label": "Bloque",
+          "transcriptText": "Se trata de una vivienda situada en un bloque.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "tipo-desconocido",
+          "order": 40,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce el tipo de vivienda.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
     },
     {
       "id": "q-altura",
-      "order": 20,
+      "order": 30,
       "text": "¿El edificio tiene más de cuatro alturas sobre rasante?",
       "required": true,
       "options": [
@@ -56,19 +101,19 @@
           "id": "altura-si",
           "order": 10,
           "label": "Sí",
-          "transcriptText": "Edificio con más de cuatro alturas sobre rasante.",
+          "transcriptText": "El edificio tiene más de cuatro alturas sobre rasante.",
           "minimumAlarmLevel": 2,
           "adviceIds": [],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         },
         {
           "id": "altura-no",
           "order": 20,
           "label": "No",
-          "transcriptText": "Edificio de hasta cuatro alturas sobre rasante.",
+          "transcriptText": "El edificio tiene hasta cuatro alturas sobre rasante.",
           "minimumAlarmLevel": 1,
           "adviceIds": [],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         },
         {
           "id": "altura-desconocida",
@@ -76,56 +121,194 @@
           "label": "No se sabe",
           "transcriptText": "Se desconoce la altura del edificio.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [],
+          "adviceIds": [
+            "mantener-contacto"
+          ],
           "source": "MVP"
         }
       ],
-      "source": "Ficha p. 21"
+      "source": "Procedimiento CERO, ficha p. 21"
+    },
+    {
+      "id": "q-viviendas-planta",
+      "order": 40,
+      "text": "¿Hay más de cuatro viviendas por planta?",
+      "required": true,
+      "visibleWhen": {
+        "questionId": "q-tipo-vivienda",
+        "optionId": "tipo-bloque"
+      },
+      "options": [
+        {
+          "id": "viviendas-planta-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "El bloque tiene más de cuatro viviendas por planta.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viviendas-planta-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "El bloque tiene hasta cuatro viviendas por planta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viviendas-planta-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce el número de viviendas por planta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "mantener-contacto"
+          ],
+          "source": "MVP"
+        }
+      ],
+      "source": "Procedimiento CERO, ficha p. 21"
+    },
+    {
+      "id": "q-personas-interior",
+      "order": 50,
+      "text": "¿Hay personas en el interior?",
+      "required": true,
+      "options": [
+        {
+          "id": "interior-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Hay personas en el interior.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "no-exponerse",
+            "mantener-contacto"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "interior-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No hay personas en el interior.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "interior-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si hay personas en el interior.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "mantener-contacto"
+          ],
+          "source": "CERO 5.2.1"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-personas-interior-numero",
+      "order": 60,
+      "text": "¿Cuántas personas permanecen en el interior?",
+      "required": true,
+      "visibleWhen": {
+        "questionId": "q-personas-interior",
+        "optionId": "interior-si"
+      },
+      "options": [
+        {
+          "id": "interior-una",
+          "order": 10,
+          "label": "Una",
+          "transcriptText": "Permanece una persona en el interior.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "no-exponerse"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "interior-varias",
+          "order": 20,
+          "label": "Varias",
+          "transcriptText": "Permanecen varias personas en el interior.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "no-exponerse",
+            "mantener-contacto"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "interior-numero-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce cuántas personas permanecen en el interior.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "mantener-contacto"
+          ],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda; CERO 5.2.1.4"
     },
     {
       "id": "q-rescate",
-      "order": 30,
-      "text": "¿Hay que realizar el rescate de alguna persona?",
+      "order": 70,
+      "text": "¿Alguna persona necesita ser rescatada o no puede salir por sus propios medios?",
       "required": true,
+      "visibleWhen": {
+        "questionId": "q-personas-interior",
+        "optionId": "interior-si"
+      },
       "options": [
         {
           "id": "rescate-si",
           "order": 10,
           "label": "Sí",
-          "transcriptText": "Es necesario realizar el rescate de personas.",
+          "transcriptText": "Hay personas que necesitan ser rescatadas.",
           "minimumAlarmLevel": 2,
           "adviceIds": [
             "no-exponerse",
             "zona-segura"
           ],
-          "source": "Ficha p. 21 y 5.3"
+          "source": "CERO, ficha p. 21"
         },
         {
           "id": "rescate-no",
           "order": 20,
           "label": "No",
-          "transcriptText": "No consta necesidad de rescate de personas.",
+          "transcriptText": "Las personas pueden salir por sus propios medios.",
           "minimumAlarmLevel": 1,
           "adviceIds": [],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         },
         {
           "id": "rescate-desconocido",
           "order": 30,
           "label": "No se sabe",
-          "transcriptText": "Se desconoce si hay personas que necesiten rescate.",
+          "transcriptText": "Se desconoce si alguna persona necesita ser rescatada.",
           "minimumAlarmLevel": 1,
           "adviceIds": [
             "mantener-contacto"
           ],
-          "source": "5.2.1"
+          "source": "CERO 5.2.1"
         }
       ],
-      "source": "Ficha p. 21"
+      "source": "Procedimiento CERO, ficha p. 21"
     },
     {
       "id": "q-personas-rescate",
-      "order": 40,
+      "order": 80,
       "text": "¿Cuántas personas necesitan ser rescatadas?",
       "required": true,
       "visibleWhen": {
@@ -142,7 +325,7 @@
           "adviceIds": [
             "no-exponerse"
           ],
-          "source": "5.2.1.4"
+          "source": "CERO 5.2.1.4"
         },
         {
           "id": "personas-varias",
@@ -154,7 +337,7 @@
             "no-exponerse",
             "zona-segura"
           ],
-          "source": "Ficha p. 21: número elevado de evacuados"
+          "source": "CERO, ficha p. 21: evacuación elevada"
         },
         {
           "id": "personas-desconocidas",
@@ -165,14 +348,362 @@
           "adviceIds": [
             "mantener-contacto"
           ],
-          "source": "5.2.1"
+          "source": "CERO 5.2.1"
         }
       ],
-      "source": "Interrogatorio inicial, 5.2.1.4"
+      "source": "Interrogatorios · Incendio de Vivienda; CERO 5.2.1.4"
+    },
+    {
+      "id": "q-extension",
+      "order": 90,
+      "text": "¿Qué extensión tiene el incendio?",
+      "required": true,
+      "options": [
+        {
+          "id": "extension-reducido",
+          "order": 10,
+          "label": "Reducido",
+          "transcriptText": "El incendio parece de extensión reducida.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "extension-extenso",
+          "order": 20,
+          "label": "Extenso",
+          "transcriptText": "El incendio es extenso.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "no-exponerse"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "extension-muy-extenso",
+          "order": 30,
+          "label": "Muy extenso",
+          "transcriptText": "El incendio es muy extenso.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura",
+            "no-exponerse"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "extension-desconocido",
+          "order": 40,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce la extensión del incendio.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "mantener-contacto"
+          ],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-humo-escalera",
+      "order": 100,
+      "text": "¿Hay humo en la escalera o en la vía de evacuación?",
+      "required": true,
+      "visibleWhen": {
+        "questionId": "q-extension",
+        "optionId": "extension-extenso"
+      },
+      "options": [
+        {
+          "id": "humo-escalera-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Hay humo en la escalera o vía de evacuación.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "refugio-humo"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "humo-escalera-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No hay humo en la escalera o vía de evacuación.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "evacuacion-sin-humo"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "humo-escalera-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si hay humo en la vía de evacuación.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "no-exponerse",
+            "mantener-contacto"
+          ],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-apagado-seguro",
+      "order": 110,
+      "text": "¿Puede apagarlo sin ponerse en peligro?",
+      "required": false,
+      "visibleWhen": {
+        "questionId": "q-extension",
+        "optionId": "extension-reducido"
+      },
+      "options": [
+        {
+          "id": "apagado-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "El alertante considera que puede apagarlo sin ponerse en peligro.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "extincion-segura"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "apagado-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No puede intentar apagarlo sin ponerse en peligro.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura",
+            "no-exponerse"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "apagado-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "No se ha determinado si puede apagarse con seguridad.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "no-exponerse"
+          ],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-focos",
+      "order": 120,
+      "text": "¿Existe más de un foco?",
+      "required": false,
+      "options": [
+        {
+          "id": "focos-uno",
+          "order": 10,
+          "label": "Un foco",
+          "transcriptText": "Se observa un único foco.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "focos-varios",
+          "order": 20,
+          "label": "Varios focos",
+          "transcriptText": "Se observan varios focos.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "focos-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce el número de focos.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-propagacion",
+      "order": 130,
+      "text": "¿Puede afectar a edificaciones adyacentes?",
+      "required": true,
+      "visibleWhen": {
+        "questionId": "q-extension",
+        "optionId": "extension-muy-extenso"
+      },
+      "options": [
+        {
+          "id": "propagacion-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Existe riesgo de propagación a edificaciones adyacentes.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "propagacion-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No se aprecia riesgo de propagación a edificaciones adyacentes.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "propagacion-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si puede afectar a edificaciones adyacentes.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "mantener-contacto"
+          ],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-derrumbamiento",
+      "order": 140,
+      "text": "¿Se ha producido el derrumbamiento de algún elemento?",
+      "required": true,
+      "visibleWhen": {
+        "questionId": "q-extension",
+        "optionId": "extension-muy-extenso"
+      },
+      "options": [
+        {
+          "id": "derrumbamiento-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Se ha producido el derrumbamiento de elementos.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "alejarse-estructura"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "derrumbamiento-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No consta derrumbamiento de elementos.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "derrumbamiento-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si se han producido derrumbamientos.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura"
+          ],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-combustibles",
+      "order": 150,
+      "text": "¿Hay combustibles o recipientes a presión implicados?",
+      "required": false,
+      "options": [
+        {
+          "id": "combustibles-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Hay combustibles o recipientes a presión implicados.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "combustibles-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No constan combustibles ni recipientes a presión implicados.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "combustibles-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si hay combustibles o recipientes a presión.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "q-material-inflamable",
+      "order": 160,
+      "text": "¿Hay material inflamable almacenado cerca del incendio?",
+      "required": false,
+      "options": [
+        {
+          "id": "material-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Hay material inflamable almacenado cerca del incendio.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "zona-segura"
+          ],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "material-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No consta material inflamable almacenado en las proximidades.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        },
+        {
+          "id": "material-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si hay material inflamable almacenado cerca.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Interrogatorios"
+        }
+      ],
+      "source": "Interrogatorios · Incendio de Vivienda"
     },
     {
       "id": "q-horario",
-      "order": 50,
+      "order": 170,
       "text": "¿El aviso se produce entre las 23:00 y las 07:00?",
       "required": true,
       "options": [
@@ -180,22 +711,60 @@
           "id": "horario-si",
           "order": 10,
           "label": "Sí",
-          "transcriptText": "Aviso en horario nocturno (23:00–07:00).",
+          "transcriptText": "El aviso se produce en horario nocturno (23:00–07:00).",
           "minimumAlarmLevel": 2,
           "adviceIds": [],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         },
         {
           "id": "horario-no",
           "order": 20,
           "label": "No",
-          "transcriptText": "Aviso fuera del horario nocturno definido.",
+          "transcriptText": "El aviso se produce fuera del horario nocturno definido.",
           "minimumAlarmLevel": 1,
           "adviceIds": [],
-          "source": "Ficha p. 21"
+          "source": "CERO, ficha p. 21"
         }
       ],
-      "source": "Ficha p. 21"
+      "source": "Procedimiento CERO, ficha p. 21"
+    },
+    {
+      "id": "q-viento",
+      "order": 180,
+      "text": "¿Hay viento intenso en la zona?",
+      "required": true,
+      "options": [
+        {
+          "id": "viento-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Hay viento intenso en la zona.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [
+            "zona-segura"
+          ],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viento-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No hay viento intenso en la zona.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viento-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si hay viento intenso.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        }
+      ],
+      "source": "Procedimiento CERO, ficha p. 21"
     }
   ],
   "advice": [
@@ -204,21 +773,59 @@
       "order": 10,
       "title": "Permanecer en zona segura",
       "text": "Indique al alertante que permanezca en una zona segura, alejada del fuego, el humo y de cualquier otro riesgo presente.",
-      "source": "Apartado 5.3.0.2, pp. 6–7"
+      "source": "CERO 5.3.0.2, pp. 6–7"
     },
     {
       "id": "no-exponerse",
       "order": 20,
-      "title": "No exponerse para rescatar",
-      "text": "Indique al alertante que no se exponga al fuego o al humo para intentar un rescate y que priorice su propia seguridad.",
-      "source": "Apartado 5.3.0.1–2, pp. 6–7"
+      "title": "No exponerse",
+      "text": "Indique al alertante que no se exponga al fuego o al humo, ni intente un rescate que ponga en riesgo su propia seguridad.",
+      "source": "CERO 5.3.0.1–2, pp. 6–7"
     },
     {
       "id": "mantener-contacto",
       "order": 30,
       "title": "Mantener una vía de comunicación",
       "text": "Confirme un teléfono de contacto y mantenga disponible una vía de comunicación con un testigo del suceso.",
-      "source": "Apartado 5.2.1.2, p. 5"
+      "source": "CERO 5.2.1.2, p. 5"
+    },
+    {
+      "id": "refugio-humo",
+      "order": 40,
+      "title": "Humo en la escalera",
+      "text": "Si no pueden evacuar con seguridad por el humo, indique que se refugien en la habitación más alejada con ventana al exterior, cierren las puertas y coloquen toallas húmedas bajo la puerta para limitar la entrada de humo.",
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "evacuacion-sin-humo",
+      "order": 50,
+      "title": "Evacuación sin humo en la escalera",
+      "text": "Si la salida es segura, indique que abandonen la zona agachados, protejan nariz y boca, no utilicen el ascensor, no abran puertas ni ventanas innecesariamente y cierren la puerta principal al salir.",
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "extincion-segura",
+      "order": 60,
+      "title": "Intento de extinción",
+      "text": "Solo si puede hacerse sin peligro: no usar agua sobre elementos eléctricos ni aceite; si se utiliza un extintor, dirigirlo a la base de las llamas.",
+      "source": "Interrogatorios · Incendio de Vivienda"
+    },
+    {
+      "id": "alejarse-estructura",
+      "order": 70,
+      "title": "Riesgo de derrumbamiento",
+      "text": "Indique al alertante que se aleje de la edificación y de cualquier elemento que pueda caer, manteniéndose en una zona segura.",
+      "source": "Interrogatorios · Incendio de Vivienda; CERO 5.3"
+    }
+  ],
+  "documents": [
+    {
+      "id": "catastro",
+      "order": 10,
+      "title": "Consultar cartografía catastral",
+      "type": "web",
+      "target": "https://www1.sedecatastro.gob.es/Cartografia/mapa.aspx?buscar=S",
+      "source": "Sede Electrónica del Catastro"
     }
   ]
 }

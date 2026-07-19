@@ -11,10 +11,9 @@ interface QuestionsPanelProps {
 export function QuestionsPanel({ questions, answers, onSelectAnswer }: QuestionsPanelProps) {
   return (
     <section
-      className="flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
-      aria-labelledby="questions-title"
+      className={'flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50'}
     >
-      <header className="shrink border-b border-slate-200 bg-white px-4 py-3">
+      <header className="shrink-0 border-b border-slate-200 bg-white px-4 py-3">
         <h2
           id="questions-title"
           className="font-semibold text-[18px] text-slate-900 text-center"

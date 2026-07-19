@@ -3,7 +3,7 @@ import { NavLink } from 'react-router'
 /* Barra de navegación principal de la aplicación */
 export function TopBar() {
   return (
-    <header className="border-b border-white bg-slate-950">
+    <header className="shrink-0 border-b border-white bg-slate-950">
       <div className="flex h-16 items-center px-6">
         <div className="mr-10">
           <p className="text-lg font-semibold text-white">

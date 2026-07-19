@@ -1,9 +1,9 @@
 /// <reference types="node" />
 
-// Este script se ejecuta con Node, no dentro de la aplicación React.
-import { mkdir, readdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import ExcelJS from 'exceljs'
+import JSZip from 'jszip'
 
 const INPUT_DIRECTORY = path.resolve('content/interventions')
 const OUTPUT_DIRECTORY = path.resolve(
@@ -46,6 +46,17 @@ interface AdviceRow {
   fuenteRef?: string
 }
 
+type DocumentType = "web" | 'public'
+
+interface DocumentRow {
+  id: string
+  orden: number
+  titulo: string
+  tipo: DocumentType
+  destino: string
+  fuenteRef?: string
+}
+
 interface InterventionFile {
   id: string
   title: string
@@ -78,7 +89,17 @@ interface InterventionFile {
     text: string
     source?: string
   }>
+  documents: Array<{
+    id: string
+    order: number
+    title: string
+    type: DocumentType
+    target: string
+    source?: string
+  }>
 }
+
+
 
 /* Datos mínimos necesarios para mostrar una ficha en el panel inicial. */
 interface InterventionSummary {
@@ -217,10 +238,77 @@ function assertUniqueIds(items: Array<{ id: string }>, itemName: string): void {
   }
 }
 
+function parseDocumentType(
+  value: unknown,
+  field: string,
+): DocumentType {
+  const type = requiredText(value, field)
+
+  if (type !== 'web' && type !== 'public') {
+    throw new Error(
+      `El campo «${field}» debe tener el valor «web» o «public».`,
+    )
+  }
+
+  return type
+}
+
+/**
+ * Normaliza los prefijos XML utilizados por algunos generadores de Excel.
+ *
+ * El archivo es válido, pero ExcelJS no interpreta correctamente etiquetas
+ * como <x:workbook>, <x:sheets> o <x:worksheet>.
+ */
+async function loadWorkbook(filePath: string): Promise<ExcelJS.Workbook> {
+  const fileBuffer = await readFile(filePath)
+  const zip = await JSZip.loadAsync(fileBuffer)
+
+  for (const fileName of Object.keys(zip.files)) {
+    if (!fileName.endsWith('.xml')) continue
+
+    const file = zip.file(fileName)
+
+    if (!file) continue
+
+    const xml = await file.async('string')
+
+    // Solo modificamos los XML que emplean el prefijo principal «x».
+    if (
+      !xml.includes(
+        'xmlns:x="http://schemas.openxmlformats.org/spreadsheetml/2006/main"',
+      )
+    ) {
+      continue
+    }
+
+    const normalizedXml = xml
+      .replace(/(<\/?)x:/g, '$1')
+      .replace(
+        'xmlns:x="http://schemas.openxmlformats.org/spreadsheetml/2006/main"',
+        'xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"',
+      )
+
+    zip.file(fileName, normalizedXml)
+  }
+
+  const normalizedWorkbook = await zip.generateAsync({ type: 'nodebuffer' })
+
+  const workbook = new ExcelJS.Workbook()
+
+  const excelBuffer = normalizedWorkbook as unknown as Parameters<
+    typeof workbook.xlsx.load
+  >[0]
+
+  await workbook.xlsx.load(excelBuffer)
+
+
+
+  return workbook
+}
+
 /** Convierte y valida un único Excel de intervención. */
 async function convertWorkbook(filePath: string): Promise<InterventionFile> {
-  const workbook = new ExcelJS.Workbook()
-  await workbook.xlsx.readFile(filePath)
+  const workbook = await loadWorkbook(filePath)
 
   const metadataRows = readSheet<MetadataRow>(workbook, 'Metadatos')
   const metadata = new Map(
@@ -271,9 +359,32 @@ async function convertWorkbook(filePath: string): Promise<InterventionFile> {
     fuenteRef: optionalText(row.fuenteRef),
   }))
 
+  const documentRows = readOptionalSheet<Record<string, unknown>>(
+    workbook,
+    'Documentos',
+  ).map<DocumentRow>((row) => ({
+    id: requiredText(row.id, 'Documentos.id'),
+    orden: parseNumber(row.orden, 'Documentos.orden'),
+    titulo: requiredText(row.titulo, 'Documentos.titulo'),
+    tipo: parseDocumentType(row.tipo, 'Documentos.tipo'),
+    destino: requiredText(row.destino, 'Documentos.destino'),
+    fuenteRef: optionalText(row.fuenteRef),
+  }))
+
+  /* Lee una hoja opcional, devolviendo una lista vacía si no existe. */
+  function readOptionalSheet<T>(
+    workbook: ExcelJS.Workbook,
+    sheetName: string,
+  ): T[] {
+    if (!workbook.getWorksheet(sheetName)) return []
+
+    return readSheet<T>(workbook, sheetName)
+  }
+
   assertUniqueIds(questionRows, 'pregunta')
   assertUniqueIds(optionRows, 'opción')
   assertUniqueIds(adviceRows, 'consejo')
+  assertUniqueIds(documentRows, 'documento')
 
   const questionsById = new Map(questionRows.map((item) => [item.id, item]))
   const optionsById = new Map(optionRows.map((item) => [item.id, item]))
@@ -329,6 +440,8 @@ async function convertWorkbook(filePath: string): Promise<InterventionFile> {
     }
   }
 
+
+
   return {
     id: requiredText(metadata.get('id'), 'Metadatos.id'),
     title: requiredText(metadata.get('titulo'), 'Metadatos.titulo'),
@@ -349,11 +462,11 @@ async function convertWorkbook(filePath: string): Promise<InterventionFile> {
         required: question.obligatoria,
         ...(question.dependeDePreguntaId && question.dependeDeOpcionId
           ? {
-              visibleWhen: {
-                questionId: question.dependeDePreguntaId,
-                optionId: question.dependeDeOpcionId,
-              },
-            }
+            visibleWhen: {
+              questionId: question.dependeDePreguntaId,
+              optionId: question.dependeDeOpcionId,
+            },
+          }
           : {}),
         options: optionRows
           .filter((option) => option.preguntaId === question.id)
@@ -376,6 +489,16 @@ async function convertWorkbook(filePath: string): Promise<InterventionFile> {
         order: item.orden,
         title: item.titulo,
         text: item.texto,
+        ...(item.fuenteRef ? { source: item.fuenteRef } : {}),
+      })),
+    documents: documentRows
+      .sort((a, b) => a.orden - b.orden)
+      .map((item) => ({
+        id: item.id,
+        order: item.orden,
+        title: item.titulo,
+        type: item.tipo,
+        target: item.destino,
         ...(item.fuenteRef ? { source: item.fuenteRef } : {}),
       })),
   }

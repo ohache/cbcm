@@ -38,6 +38,18 @@ export interface InterventionAdvice {
   source?: string
 }
 
+export type InterventionDocumentType = "web" | "public"
+
+/* Documento o enlace asociado a una intervención */
+export interface InterventionDocument {
+  id: string
+  orden: number
+  title: string
+  type: InterventionDocumentType
+  target: string
+  source?: string
+}
+
 /* Definición completa de un tipo de intervención */
 export interface Intervention {
   id: string
@@ -46,4 +58,5 @@ export interface Intervention {
   schemaVersion: number
   questions: InterventionQuestion[]
   advice: InterventionAdvice[]
+  documents: InterventionDocument[]
 }

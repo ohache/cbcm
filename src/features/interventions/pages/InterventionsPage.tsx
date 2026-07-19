@@ -12,7 +12,7 @@ export function InterventionsPage() {
   const [transcript, setTranscript] = useState('')
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
+    <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
       <Outlet
         context={{ transcript, setTranscript } satisfies InterventionsOutletContext}
       />

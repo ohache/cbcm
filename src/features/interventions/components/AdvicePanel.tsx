@@ -6,12 +6,13 @@ interface AdvicePanelProps {
 
 /* Muestra los consejos activados por las respuestas seleccionadas. */
 export function AdvicePanel({ advice }: AdvicePanelProps) {
+  if (advice.length === 0) return null
+
   return (
     <section
-      className="flex min-h-0 flex-col rounded-lg border border-slate-200 bg-white"
-      aria-labelledby="advice-title"
+      className={'flex max-h-[calc(50%-0.5rem)] min-h-0 flex-col overflow-hidden rounded-lg border border-slate-200 bg-white'}
     >
-      <header className="border-b border-slate-200 px-4 py-3">
+      <header className="shrink-0 border-b border-slate-200 px-4 py-3">
         <h2 id="advice-title" className="font-semibold text-slate-900">
           Consejos
         </h2>

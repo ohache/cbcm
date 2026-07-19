@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react'
+import { useState, type ChangeEvent } from 'react'
 
 interface TranscriptAreaProps {
   value: string
@@ -9,6 +9,20 @@ interface TranscriptAreaProps {
 export function TranscriptArea({ value, onChange }: TranscriptAreaProps) {
   /* Extrae el nuevo texto del evento y lo comunica al componente padre */
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => onChange(event.target.value)
+
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = async () => {
+    if (!value.trim()) return
+
+    await navigator.clipboard.writeText(value)
+
+    setCopied(true)
+
+    window.setTimeout(() => {
+      setCopied(false)
+    }, 1500)
+  }
 
   return (
     <section
@@ -26,19 +40,34 @@ export function TranscriptArea({ value, onChange }: TranscriptAreaProps) {
           Texto de la intervención
         </label>
 
-        <button
-          type="button"
-          className={
-            'justify-self-end rounded-md border border-slate-500 px-3 py-1 ' +
-            'text-sm font-semibold text-white transition-colors ' +
-            'hover:border-red-400 hover:bg-red-700 disabled:cursor-not-allowed ' +
-            'disabled:opacity-40'
-          }
-          disabled={!value}
-          onClick={() => onChange('')}
-        >
-          Limpiar
-        </button>
+        <div className="flex justify-self-end gap-2">
+          <button
+            type="button"
+            className={
+              'rounded-md border border-slate-500 px-3 py-1 text-sm font-semibold ' +
+              'text-white transition-colors hover:border-cyan-400 hover:bg-cyan-700 ' +
+              'disabled:cursor-not-allowed disabled:opacity-40'
+            }
+            disabled={!value.trim()}
+            onClick={() => void handleCopy()}
+            aria-live="polite"
+          >
+            {copied ? 'Copiado' : 'Copiar'}
+          </button>
+
+          <button
+            type="button"
+            className={
+              'rounded-md border border-slate-500 px-3 py-1 text-sm font-semibold ' +
+              'text-white transition-colors hover:border-red-400 hover:bg-red-700 ' +
+              'disabled:cursor-not-allowed disabled:opacity-40'
+            }
+            disabled={!value}
+            onClick={() => onChange('')}
+          >
+            Limpiar
+          </button>
+        </div>
       </div>
 
       <textarea
@@ -46,8 +75,8 @@ export function TranscriptArea({ value, onChange }: TranscriptAreaProps) {
         value={value}
         onChange={handleChange}
         placeholder="Escribe la información comunicada por el alertante..."
-        className="h-20 w-full resize-y rounded-lg border-2 border-slate-600 bg-white p-3 text-[15px]
-          text-black outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-red-700/20"
+        className={'h-20 w-full resize-none rounded-lg border-2 border-slate-600 bg-white p-3 text-[15px] text-black outline-none transition ' +
+          'focus:border-cyan-500 focus:ring-2 focus:ring-red-700/20'}
       />
     </section>
   )

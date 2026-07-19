@@ -86,24 +86,34 @@ export function useInterventionSession(intervention: Intervention): Intervention
   }, [answers, intervention.advice, visibleQuestions])
 
   const generatedTranscript = useMemo(() =>
-      visibleQuestions.map((question) => findSelectedOption(question, answers)?.transcriptText.trim()).filter((text): text is string => Boolean(text)).join(' '),
+    visibleQuestions.map((question) => findSelectedOption(question, answers)?.transcriptText.trim()).filter((text): text is string => Boolean(text)).join(' '),
     [answers, visibleQuestions],
   )
 
   const selectAnswer = useCallback((questionId: string, optionId: string) => {
       setSession((currentSession) => {
         const currentAnswers = currentSession.interventionId === intervention.id ? currentSession.answers : {}
+
         const question = intervention.questions.find((item) => item.id === questionId)
 
         if (!question || !isQuestionVisible(question, currentAnswers) || !question.options.some((option) => option.id === optionId)) {
           return currentSession
         }
 
-        const nextAnswers = removeHiddenAnswers(intervention, { ...currentAnswers, [questionId]: optionId })
+        const updatedAnswers = { ...currentAnswers }
+
+        if (updatedAnswers[questionId] === optionId) {
+          delete updatedAnswers[questionId]
+        } else {
+          updatedAnswers[questionId] = optionId
+        }
+
+        const nextAnswers = removeHiddenAnswers(intervention, updatedAnswers)
 
         return { interventionId: intervention.id, answers: nextAnswers }
       })
-    }, [intervention],
+    },
+    [intervention],
   )
 
   const resetSession = useCallback(() => {

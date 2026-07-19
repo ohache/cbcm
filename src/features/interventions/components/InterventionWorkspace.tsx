@@ -8,6 +8,7 @@ import { useInterventionSession } from '@/features/interventions/hooks/useInterv
 import type { InterventionsOutletContext } from '@/features/interventions/pages/InterventionsPage'
 import type { Intervention } from '@/features/interventions/types/intervention.types'
 import { InterventionSheetModal } from '@/features/interventions/components/InterventionSheetModal'
+import { DocumentsPanel } from '@/features/interventions/components/DocumentsPanel'
 
 type LoadingStatus = 'loading' | 'ready' | 'not-found' | 'error'
 
@@ -88,18 +89,10 @@ function InterventionContent({ intervention }: InterventionContentProps) {
           onSelectAnswer={selectAnswer}
         />
 
-        <div className="grid min-h-0 grid-rows-[minmax(0,1fr)_auto] gap-4 overflow-hidden">
+        <div className="flex min-h-0 flex-col gap-4 overflow-hidden">
           <AdvicePanel advice={activeAdvice} />
 
-          <div className="rounded-lg border border-slate-200 bg-white p-4">
-            <h2 className="font-semibold text-slate-900">
-              Documentos
-            </h2>
-
-            <p className="mt-2 text-sm text-slate-500">
-              No hay documentos asociados por el momento.
-            </p>
-          </div>
+          <DocumentsPanel documents={intervention.documents} />
         </div>
       </div>
 
