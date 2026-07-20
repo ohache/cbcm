@@ -5,16 +5,19 @@ import { TranscriptArea } from '@/features/interventions/components/TranscriptAr
 export interface InterventionsOutletContext {
   transcript: string
   setTranscript: Dispatch<SetStateAction<string>>
+  address: string
+  setAddress: Dispatch<SetStateAction<string>>
 }
 
 /* Página principal del módulo de interrogatorios */
 export function InterventionsPage() {
   const [transcript, setTranscript] = useState('')
+  const [address, setAddress] = useState('')
 
   return (
     <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
       <Outlet
-        context={{ transcript, setTranscript } satisfies InterventionsOutletContext}
+        context={{ transcript, setTranscript, address, setAddress } satisfies InterventionsOutletContext}
       />
 
       <TranscriptArea

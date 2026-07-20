@@ -94,7 +94,7 @@
     {
       "id": "q-altura",
       "order": 30,
-      "text": "¿El edificio tiene más de cuatro alturas sobre rasante?",
+      "text": "¿Cuántas alturas tiene el edificio?",
       "required": true,
       "options": [
         {
@@ -132,7 +132,7 @@
     {
       "id": "q-viviendas-planta",
       "order": 40,
-      "text": "¿Hay más de cuatro viviendas por planta?",
+      "text": "¿Cuántas viviendas hay por planta?",
       "required": true,
       "visibleWhen": {
         "questionId": "q-tipo-vivienda",
@@ -264,7 +264,7 @@
     {
       "id": "q-rescate",
       "order": 70,
-      "text": "¿Alguna persona necesita ser rescatada o no puede salir por sus propios medios?",
+      "text": "¿Sabe dónde se encuentran las personas?",
       "required": true,
       "visibleWhen": {
         "questionId": "q-personas-interior",
@@ -356,7 +356,7 @@
     {
       "id": "q-extension",
       "order": 90,
-      "text": "¿Qué extensión tiene el incendio?",
+      "text": "¿Dónde tiene lugar el incendio?",
       "required": true,
       "options": [
         {
@@ -820,12 +820,12 @@
   ],
   "documents": [
     {
-      "id": "catastro",
+      "id": "actuacion-incendio-vivienda",
       "order": 10,
-      "title": "Consultar cartografía catastral",
-      "type": "web",
-      "target": "https://www1.sedecatastro.gob.es/Cartografia/mapa.aspx?buscar=S",
-      "source": "Sede Electrónica del Catastro"
+      "title": "Actuación en incendio de vivienda",
+      "type": "public",
+      "target": "documentos/actuacion-incendio-vivienda.pdf",
+      "source": "Documento de actuación"
     }
   ]
 }

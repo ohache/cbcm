@@ -9,6 +9,8 @@ import type { InterventionsOutletContext } from '@/features/interventions/pages/
 import type { Intervention } from '@/features/interventions/types/intervention.types'
 import { InterventionSheetModal } from '@/features/interventions/components/InterventionSheetModal'
 import { DocumentsPanel } from '@/features/interventions/components/DocumentsPanel'
+import { LocationPanel } from '@/features/interventions/components/LocationPanel'
+import { SpecialInterventionsButton } from '@/features/interventions/components/SpecialInterventionsButton'
 
 type LoadingStatus = 'loading' | 'ready' | 'not-found' | 'error'
 
@@ -19,7 +21,7 @@ interface InterventionContentProps {
 }
 
 function InterventionContent({ intervention }: InterventionContentProps) {
-  const { setTranscript } = useOutletContext<InterventionsOutletContext>()
+  const { setTranscript, address, setAddress } = useOutletContext<InterventionsOutletContext>()
 
   const [isSheetModalOpen, setIsSheetModalOpen] = useState(false)
 
@@ -76,10 +78,19 @@ function InterventionContent({ intervention }: InterventionContentProps) {
           </h1>
         </div>
 
-        <AlarmLevelIndicator
-          level={alarmLevel}
-          onClick={() => setIsSheetModalOpen(true)}
-        />
+        <div className="flex flex-wrap items-center justify-end gap-4">
+          <LocationPanel
+            address={address}
+            onAddressChange={setAddress}
+          />
+
+          <SpecialInterventionsButton />
+
+          <AlarmLevelIndicator
+            level={alarmLevel}
+            onClick={() => setIsSheetModalOpen(true)}
+          />
+        </div>
       </header>
 
       <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 overflow-hidden lg:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)]">
