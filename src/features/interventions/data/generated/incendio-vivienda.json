@@ -17,9 +17,7 @@
           "label": "Una",
           "transcriptText": "El incendio afecta a una vivienda.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "zona-segura"
-          ],
+          "adviceIds": [],
           "source": "CERO, ficha p. 21"
         },
         {
@@ -28,9 +26,7 @@
           "label": "Dos",
           "transcriptText": "El incendio afecta a dos viviendas.",
           "minimumAlarmLevel": 2,
-          "adviceIds": [
-            "zona-segura"
-          ],
+          "adviceIds": [],
           "source": "CERO, ficha p. 21"
         },
         {
@@ -39,9 +35,7 @@
           "label": "Tres o más",
           "transcriptText": "El incendio afecta a tres o más viviendas.",
           "minimumAlarmLevel": 3,
-          "adviceIds": [
-            "zona-segura"
-          ],
+          "adviceIds": [],
           "source": "CERO, ficha p. 21"
         }
       ],
@@ -99,33 +93,112 @@
       "required": true,
       "options": [
         {
-          "id": "altura-si",
+          "id": "altura-1",
           "order": 10,
-          "label": "Sí",
-          "transcriptText": "El edificio tiene más de cuatro alturas sobre rasante.",
+          "label": "1",
+          "transcriptText": "El edificio tiene una altura.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-2",
+          "order": 20,
+          "label": "2",
+          "transcriptText": "El edificio tiene 2 alturas.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-3",
+          "order": 30,
+          "label": "3",
+          "transcriptText": "El edificio tiene 3 alturas.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-4",
+          "order": 40,
+          "label": "4",
+          "transcriptText": "El edificio tiene 4 alturas.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-5",
+          "order": 50,
+          "label": "5",
+          "transcriptText": "El edificio tiene 5 alturas.",
           "minimumAlarmLevel": 2,
           "adviceIds": [],
           "source": "CERO, ficha p. 21"
         },
         {
-          "id": "altura-no",
-          "order": 20,
-          "label": "No",
-          "transcriptText": "El edificio tiene hasta cuatro alturas sobre rasante.",
-          "minimumAlarmLevel": 1,
+          "id": "altura-6",
+          "order": 60,
+          "label": "6",
+          "transcriptText": "El edificio tiene 6 alturas.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-7",
+          "order": 70,
+          "label": "7",
+          "transcriptText": "El edificio tiene 7 alturas.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-8",
+          "order": 80,
+          "label": "8",
+          "transcriptText": "El edificio tiene 8 alturas.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-9",
+          "order": 90,
+          "label": "9",
+          "transcriptText": "El edificio tiene 9 alturas.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-10",
+          "order": 100,
+          "label": "10",
+          "transcriptText": "El edificio tiene 10 alturas.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "altura-mas-10",
+          "order": 110,
+          "label": "Más de 10",
+          "transcriptText": "El edificio tiene más de 10 alturas.",
+          "minimumAlarmLevel": 2,
           "adviceIds": [],
           "source": "CERO, ficha p. 21"
         },
         {
           "id": "altura-desconocida",
-          "order": 30,
+          "order": 120,
           "label": "No se sabe",
           "transcriptText": "Se desconoce la altura del edificio.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
-          "source": "MVP"
+          "adviceIds": [],
+          "source": "Revisión del MVP"
         }
       ],
       "source": "Procedimiento CERO, ficha p. 21"
@@ -141,40 +214,222 @@
       },
       "options": [
         {
-          "id": "viviendas-planta-si",
+          "id": "viviendas-planta-1",
           "order": 10,
-          "label": "Sí",
-          "transcriptText": "El bloque tiene más de cuatro viviendas por planta.",
+          "label": "1",
+          "transcriptText": "El bloque tiene una vivienda por planta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viviendas-planta-2",
+          "order": 20,
+          "label": "2",
+          "transcriptText": "El bloque tiene 2 viviendas por planta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viviendas-planta-3",
+          "order": 30,
+          "label": "3",
+          "transcriptText": "El bloque tiene 3 viviendas por planta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viviendas-planta-4",
+          "order": 40,
+          "label": "4",
+          "transcriptText": "El bloque tiene 4 viviendas por planta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viviendas-planta-5",
+          "order": 50,
+          "label": "5",
+          "transcriptText": "El bloque tiene 5 viviendas por planta.",
           "minimumAlarmLevel": 2,
           "adviceIds": [],
           "source": "CERO, ficha p. 21"
         },
         {
-          "id": "viviendas-planta-no",
-          "order": 20,
-          "label": "No",
-          "transcriptText": "El bloque tiene hasta cuatro viviendas por planta.",
-          "minimumAlarmLevel": 1,
+          "id": "viviendas-planta-6",
+          "order": 60,
+          "label": "6",
+          "transcriptText": "El bloque tiene 6 viviendas por planta.",
+          "minimumAlarmLevel": 2,
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
+        },
+        {
+          "id": "viviendas-planta-mas-6",
+          "order": 70,
+          "label": "Más de 6",
+          "transcriptText": "El bloque tiene más de 6 viviendas por planta.",
+          "minimumAlarmLevel": 2,
           "adviceIds": [],
           "source": "CERO, ficha p. 21"
         },
         {
           "id": "viviendas-planta-desconocido",
-          "order": 30,
+          "order": 80,
           "label": "No se sabe",
           "transcriptText": "Se desconoce el número de viviendas por planta.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
-          "source": "MVP"
+          "adviceIds": [],
+          "source": "Revisión del MVP"
         }
       ],
       "source": "Procedimiento CERO, ficha p. 21"
     },
     {
-      "id": "q-personas-interior",
+      "id": "q-garaje",
       "order": 50,
+      "text": "¿Tiene garaje el edificio?",
+      "required": true,
+      "options": [
+        {
+          "id": "garaje-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "El edificio tiene garaje.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "garaje-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "El edificio no tiene garaje.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "garaje-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si el edificio tiene garaje.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        }
+      ],
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "q-garaje-plantas",
+      "order": 60,
+      "text": "¿Cuántas plantas tiene el garaje?",
+      "required": true,
+      "visibleWhen": {
+        "questionId": "q-garaje",
+        "optionId": "garaje-si"
+      },
+      "options": [
+        {
+          "id": "garaje-plantas-1",
+          "order": 10,
+          "label": "1",
+          "transcriptText": "El garaje tiene una planta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "garaje-plantas-2",
+          "order": 20,
+          "label": "2",
+          "transcriptText": "El garaje tiene 2 plantas.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "garaje-plantas-3",
+          "order": 30,
+          "label": "3",
+          "transcriptText": "El garaje tiene 3 plantas.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "garaje-plantas-4",
+          "order": 40,
+          "label": "4",
+          "transcriptText": "El garaje tiene 4 plantas.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "garaje-plantas-mas-4",
+          "order": 50,
+          "label": "Más de 4",
+          "transcriptText": "El garaje tiene más de 4 plantas.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "garaje-plantas-desconocidas",
+          "order": 60,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce el número de plantas del garaje.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        }
+      ],
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "q-calle-autoescala",
+      "order": 70,
+      "text": "¿La calle es suficientemente ancha para emplazar una autoescala?",
+      "required": true,
+      "options": [
+        {
+          "id": "calle-autoescala-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "La calle permite el emplazamiento de una autoescala.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "calle-autoescala-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "La calle no parece permitir el emplazamiento de una autoescala.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "calle-autoescala-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si la calle permite emplazar una autoescala.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        }
+      ],
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "q-personas-interior",
+      "order": 80,
       "text": "¿Hay personas en el interior?",
       "required": true,
       "options": [
@@ -185,8 +440,7 @@
           "transcriptText": "Hay personas en el interior.",
           "minimumAlarmLevel": 1,
           "adviceIds": [
-            "no-exponerse",
-            "mantener-contacto"
+            "no-exponerse"
           ],
           "source": "Interrogatorios"
         },
@@ -207,9 +461,7 @@
           "label": "No se sabe",
           "transcriptText": "Se desconoce si hay personas en el interior.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
+          "adviceIds": [],
           "source": "CERO 5.2.1"
         }
       ],
@@ -217,7 +469,7 @@
     },
     {
       "id": "q-personas-interior-numero",
-      "order": 60,
+      "order": 90,
       "text": "¿Cuántas personas permanecen en el interior?",
       "required": true,
       "visibleWhen": {
@@ -254,18 +506,16 @@
           "label": "No se sabe",
           "transcriptText": "Se desconoce cuántas personas permanecen en el interior.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
+          "adviceIds": [],
           "source": "Interrogatorios"
         }
       ],
       "source": "Interrogatorios · Incendio de Vivienda; CERO 5.2.1.4"
     },
     {
-      "id": "q-rescate",
-      "order": 70,
-      "text": "¿Sabe dónde se encuentran las personas?",
+      "id": "q-atrapadas",
+      "order": 100,
+      "text": "¿Hay alguna persona atrapada o que no pueda salir?",
       "required": true,
       "visibleWhen": {
         "questionId": "q-personas-interior",
@@ -273,91 +523,360 @@
       },
       "options": [
         {
-          "id": "rescate-si",
+          "id": "atrapadas-si",
           "order": 10,
           "label": "Sí",
-          "transcriptText": "Hay personas que necesitan ser rescatadas.",
+          "transcriptText": "Hay personas atrapadas o que no pueden salir.",
           "minimumAlarmLevel": 2,
           "adviceIds": [
-            "no-exponerse",
-            "zona-segura"
+            "persona-atrapada",
+            "no-exponerse"
           ],
           "source": "CERO, ficha p. 21"
         },
         {
-          "id": "rescate-no",
+          "id": "atrapadas-no",
           "order": 20,
           "label": "No",
-          "transcriptText": "Las personas pueden salir por sus propios medios.",
+          "transcriptText": "No hay personas atrapadas y pueden salir por sus propios medios.",
           "minimumAlarmLevel": 1,
           "adviceIds": [],
           "source": "CERO, ficha p. 21"
         },
         {
-          "id": "rescate-desconocido",
+          "id": "atrapadas-desconocido",
           "order": 30,
           "label": "No se sabe",
-          "transcriptText": "Se desconoce si alguna persona necesita ser rescatada.",
+          "transcriptText": "Se desconoce si hay personas atrapadas.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
+          "adviceIds": [],
           "source": "CERO 5.2.1"
         }
       ],
       "source": "Procedimiento CERO, ficha p. 21"
     },
     {
-      "id": "q-personas-rescate",
-      "order": 80,
-      "text": "¿Cuántas personas necesitan ser rescatadas?",
+      "id": "q-salida",
+      "order": 110,
+      "text": "¿Han salido ya de la vivienda?",
+      "required": true,
+      "options": [
+        {
+          "id": "salida-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Las personas han salido de la vivienda.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [
+            "no-regresar"
+          ],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "salida-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "Las personas no han salido de la vivienda.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "salida-desconocida",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si las personas han salido de la vivienda.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        }
+      ],
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "q-puerta-cerrada",
+      "order": 120,
+      "text": "¿Han cerrado la puerta de la vivienda al salir?",
       "required": true,
       "visibleWhen": {
-        "questionId": "q-rescate",
-        "optionId": "rescate-si"
+        "questionId": "q-salida",
+        "optionId": "salida-si"
       },
       "options": [
         {
-          "id": "personas-una",
+          "id": "puerta-cerrada-si",
           "order": 10,
-          "label": "Una",
-          "transcriptText": "Una persona necesita ser rescatada.",
-          "minimumAlarmLevel": 2,
-          "adviceIds": [
-            "no-exponerse"
-          ],
-          "source": "CERO 5.2.1.4"
+          "label": "Sí",
+          "transcriptText": "Han cerrado la puerta de la vivienda al salir.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
         },
         {
-          "id": "personas-varias",
+          "id": "puerta-cerrada-no",
           "order": 20,
-          "label": "Varias",
-          "transcriptText": "Varias personas necesitan ser rescatadas.",
-          "minimumAlarmLevel": 3,
+          "label": "No",
+          "transcriptText": "No han cerrado la puerta de la vivienda al salir.",
+          "minimumAlarmLevel": 1,
           "adviceIds": [
-            "no-exponerse",
-            "zona-segura"
+            "no-regresar"
           ],
-          "source": "CERO, ficha p. 21: evacuación elevada"
+          "source": "Revisión del MVP"
         },
         {
-          "id": "personas-desconocidas",
+          "id": "puerta-cerrada-desconocida",
           "order": 30,
           "label": "No se sabe",
-          "transcriptText": "Se desconoce cuántas personas necesitan ser rescatadas.",
-          "minimumAlarmLevel": 2,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
-          "source": "CERO 5.2.1"
+          "transcriptText": "Se desconoce si han cerrado la puerta al salir.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
         }
       ],
-      "source": "Interrogatorios · Incendio de Vivienda; CERO 5.2.1.4"
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "q-llaves",
+      "order": 130,
+      "text": "¿Tienen la llave de la vivienda a mano?",
+      "required": true,
+      "visibleWhen": {
+        "questionId": "q-salida",
+        "optionId": "salida-si"
+      },
+      "options": [
+        {
+          "id": "llaves-si",
+          "order": 10,
+          "label": "Sí",
+          "transcriptText": "Tienen la llave de la vivienda a mano.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "llaves-no",
+          "order": 20,
+          "label": "No",
+          "transcriptText": "No tienen la llave de la vivienda a mano.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "llaves-desconocido",
+          "order": 30,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce si tienen la llave de la vivienda a mano.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        }
+      ],
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "q-origen-lugar",
+      "order": 140,
+      "text": "¿Dónde se ha originado el incendio?",
+      "required": true,
+      "options": [
+        {
+          "id": "origen-lugar-cocina",
+          "order": 10,
+          "label": "Cocina",
+          "transcriptText": "El incendio se ha originado en cocina.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-salon",
+          "order": 20,
+          "label": "Salón",
+          "transcriptText": "El incendio se ha originado en salón.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-habitacion",
+          "order": 30,
+          "label": "Habitación",
+          "transcriptText": "El incendio se ha originado en habitación.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-bano",
+          "order": 40,
+          "label": "Baño",
+          "transcriptText": "El incendio se ha originado en baño.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-pasillo",
+          "order": 50,
+          "label": "Pasillo o distribuidor",
+          "transcriptText": "El incendio se ha originado en pasillo o distribuidor.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-terraza",
+          "order": 60,
+          "label": "Terraza o balcón",
+          "transcriptText": "El incendio se ha originado en terraza o balcón.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-trastero",
+          "order": 70,
+          "label": "Trastero",
+          "transcriptText": "El incendio se ha originado en trastero.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-garaje",
+          "order": 80,
+          "label": "Garaje",
+          "transcriptText": "El incendio se ha originado en garaje.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-otro",
+          "order": 90,
+          "label": "Otro lugar",
+          "transcriptText": "El incendio se ha originado en otro lugar.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-lugar-desconocido",
+          "order": 100,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce dónde se ha originado el incendio.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        }
+      ],
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "q-origen-causa",
+      "order": 150,
+      "text": "¿Qué ha originado el incendio?",
+      "required": false,
+      "options": [
+        {
+          "id": "origen-causa-enchufe",
+          "order": 10,
+          "label": "Enchufe o instalación eléctrica",
+          "transcriptText": "El posible origen del incendio es: enchufe o instalación eléctrica.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-fuegos",
+          "order": 20,
+          "label": "Fuegos o placa de cocina",
+          "transcriptText": "El posible origen del incendio es: fuegos o placa de cocina.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-horno",
+          "order": 30,
+          "label": "Horno",
+          "transcriptText": "El posible origen del incendio es: horno.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-chimenea",
+          "order": 40,
+          "label": "Chimenea",
+          "transcriptText": "El posible origen del incendio es: chimenea.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-calefactor",
+          "order": 50,
+          "label": "Estufa o calefactor",
+          "transcriptText": "El posible origen del incendio es: estufa o calefactor.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-vela",
+          "order": 60,
+          "label": "Vela o llama abierta",
+          "transcriptText": "El posible origen del incendio es: vela o llama abierta.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-aceite",
+          "order": 70,
+          "label": "Aceite o sartén",
+          "transcriptText": "El posible origen del incendio es: aceite o sartén.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-bateria",
+          "order": 80,
+          "label": "Batería o cargador",
+          "transcriptText": "El posible origen del incendio es: batería o cargador.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-otra",
+          "order": 90,
+          "label": "Otra causa",
+          "transcriptText": "El posible origen del incendio es: otra causa.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        },
+        {
+          "id": "origen-causa-desconocida",
+          "order": 100,
+          "label": "No se sabe",
+          "transcriptText": "Se desconoce qué ha originado el incendio.",
+          "minimumAlarmLevel": 1,
+          "adviceIds": [],
+          "source": "Revisión del MVP"
+        }
+      ],
+      "source": "Revisión del MVP"
     },
     {
       "id": "q-extension",
-      "order": 90,
-      "text": "¿Dónde tiene lugar el incendio?",
+      "order": 160,
+      "text": "¿Qué extensión tiene el incendio?",
       "required": true,
       "options": [
         {
@@ -398,9 +917,7 @@
           "label": "No se sabe",
           "transcriptText": "Se desconoce la extensión del incendio.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
+          "adviceIds": [],
           "source": "Interrogatorios"
         }
       ],
@@ -408,13 +925,9 @@
     },
     {
       "id": "q-humo-escalera",
-      "order": 100,
+      "order": 170,
       "text": "¿Hay humo en la escalera o en la vía de evacuación?",
       "required": true,
-      "visibleWhen": {
-        "questionId": "q-extension",
-        "optionId": "extension-extenso"
-      },
       "options": [
         {
           "id": "humo-escalera-si",
@@ -444,10 +957,7 @@
           "label": "No se sabe",
           "transcriptText": "Se desconoce si hay humo en la vía de evacuación.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "no-exponerse",
-            "mantener-contacto"
-          ],
+          "adviceIds": [],
           "source": "Interrogatorios"
         }
       ],
@@ -455,7 +965,7 @@
     },
     {
       "id": "q-apagado-seguro",
-      "order": 110,
+      "order": 180,
       "text": "¿Puede apagarlo sin ponerse en peligro?",
       "required": false,
       "visibleWhen": {
@@ -492,55 +1002,51 @@
           "label": "No se sabe",
           "transcriptText": "No se ha determinado si puede apagarse con seguridad.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "no-exponerse"
-          ],
+          "adviceIds": [],
           "source": "Interrogatorios"
         }
       ],
       "source": "Interrogatorios · Incendio de Vivienda"
     },
     {
-      "id": "q-focos",
-      "order": 120,
-      "text": "¿Existe más de un foco?",
-      "required": false,
+      "id": "q-cubierta",
+      "order": 190,
+      "text": "¿Está afectada la cubierta del edificio?",
+      "required": true,
       "options": [
         {
-          "id": "focos-uno",
+          "id": "cubierta-si",
           "order": 10,
-          "label": "Un foco",
-          "transcriptText": "Se observa un único foco.",
+          "label": "Sí",
+          "transcriptText": "La cubierta del edificio está afectada.",
           "minimumAlarmLevel": 1,
           "adviceIds": [],
-          "source": "Interrogatorios"
+          "source": "CERO, ficha p. 21"
         },
         {
-          "id": "focos-varios",
+          "id": "cubierta-no",
           "order": 20,
-          "label": "Varios focos",
-          "transcriptText": "Se observan varios focos.",
+          "label": "No",
+          "transcriptText": "La cubierta del edificio no está afectada.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "zona-segura"
-          ],
-          "source": "Interrogatorios"
+          "adviceIds": [],
+          "source": "CERO, ficha p. 21"
         },
         {
-          "id": "focos-desconocido",
+          "id": "cubierta-desconocida",
           "order": 30,
           "label": "No se sabe",
-          "transcriptText": "Se desconoce el número de focos.",
+          "transcriptText": "Se desconoce si la cubierta está afectada.",
           "minimumAlarmLevel": 1,
           "adviceIds": [],
-          "source": "Interrogatorios"
+          "source": "CERO, ficha p. 21"
         }
       ],
-      "source": "Interrogatorios · Incendio de Vivienda"
+      "source": "Procedimiento CERO, ficha p. 21"
     },
     {
       "id": "q-propagacion",
-      "order": 130,
+      "order": 200,
       "text": "¿Puede afectar a edificaciones adyacentes?",
       "required": true,
       "visibleWhen": {
@@ -574,9 +1080,7 @@
           "label": "No se sabe",
           "transcriptText": "Se desconoce si puede afectar a edificaciones adyacentes.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "mantener-contacto"
-          ],
+          "adviceIds": [],
           "source": "Interrogatorios"
         }
       ],
@@ -584,7 +1088,7 @@
     },
     {
       "id": "q-derrumbamiento",
-      "order": 140,
+      "order": 210,
       "text": "¿Se ha producido el derrumbamiento de algún elemento?",
       "required": true,
       "visibleWhen": {
@@ -618,9 +1122,7 @@
           "label": "No se sabe",
           "transcriptText": "Se desconoce si se han producido derrumbamientos.",
           "minimumAlarmLevel": 1,
-          "adviceIds": [
-            "zona-segura"
-          ],
+          "adviceIds": [],
           "source": "Interrogatorios"
         }
       ],
@@ -628,7 +1130,7 @@
     },
     {
       "id": "q-combustibles",
-      "order": 150,
+      "order": 220,
       "text": "¿Hay combustibles o recipientes a presión implicados?",
       "required": false,
       "options": [
@@ -666,7 +1168,7 @@
     },
     {
       "id": "q-material-inflamable",
-      "order": 160,
+      "order": 230,
       "text": "¿Hay material inflamable almacenado cerca del incendio?",
       "required": false,
       "options": [
@@ -704,7 +1206,7 @@
     },
     {
       "id": "q-horario",
-      "order": 170,
+      "order": 240,
       "text": "¿El aviso se produce entre las 23:00 y las 07:00?",
       "required": true,
       "options": [
@@ -731,7 +1233,7 @@
     },
     {
       "id": "q-viento",
-      "order": 180,
+      "order": 250,
       "text": "¿Hay viento intenso en la zona?",
       "required": true,
       "options": [
@@ -791,29 +1293,43 @@
       "source": "CERO 5.2.1.2, p. 5"
     },
     {
-      "id": "refugio-humo",
+      "id": "persona-atrapada",
       "order": 40,
+      "title": "Persona atrapada",
+      "text": "Indique a la persona atrapada que vaya a la habitación más alejada del incendio que tenga una ventana a la vía pública, cierre la puerta, coloque un trapo o una toalla húmedos en la puerta para limitar la entrada de humo y se haga visible desde la ventana.",
+      "source": "Revisión del MVP"
+    },
+    {
+      "id": "refugio-humo",
+      "order": 50,
       "title": "Humo en la escalera",
       "text": "Si no pueden evacuar con seguridad por el humo, indique que se refugien en la habitación más alejada con ventana al exterior, cierren las puertas y coloquen toallas húmedas bajo la puerta para limitar la entrada de humo.",
       "source": "Interrogatorios · Incendio de Vivienda"
     },
     {
       "id": "evacuacion-sin-humo",
-      "order": 50,
+      "order": 60,
       "title": "Evacuación sin humo en la escalera",
       "text": "Si la salida es segura, indique que abandonen la zona agachados, protejan nariz y boca, no utilicen el ascensor, no abran puertas ni ventanas innecesariamente y cierren la puerta principal al salir.",
       "source": "Interrogatorios · Incendio de Vivienda"
     },
     {
+      "id": "no-regresar",
+      "order": 70,
+      "title": "No regresar a la vivienda",
+      "text": "Una vez fuera, indique que no vuelvan a entrar en la vivienda y que esperen la llegada de los servicios de emergencia en una zona segura.",
+      "source": "Revisión del MVP"
+    },
+    {
       "id": "extincion-segura",
-      "order": 60,
+      "order": 80,
       "title": "Intento de extinción",
       "text": "Solo si puede hacerse sin peligro: no usar agua sobre elementos eléctricos ni aceite; si se utiliza un extintor, dirigirlo a la base de las llamas.",
       "source": "Interrogatorios · Incendio de Vivienda"
     },
     {
       "id": "alejarse-estructura",
-      "order": 70,
+      "order": 90,
       "title": "Riesgo de derrumbamiento",
       "text": "Indique al alertante que se aleje de la edificación y de cualquier elemento que pueda caer, manteniéndose en una zona segura.",
       "source": "Interrogatorios · Incendio de Vivienda; CERO 5.3"

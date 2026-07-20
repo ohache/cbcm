@@ -55,6 +55,7 @@ export function SpecialInterventionsModal({ isOpen, onClose }: SpecialInterventi
                     }
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={onClose}
                     className={'flex w-full items-center justify-center rounded-md border-2 border-slate-700 ' +
                       'bg-slate-950 px-4 py-4 text-center text-white ' +
                       'transition duration-200 hover:border-emerald-500 hover:bg-emerald-950 hover:shadow-md'}
