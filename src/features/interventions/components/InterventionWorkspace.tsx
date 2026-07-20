@@ -61,29 +61,25 @@ function InterventionContent({ intervention }: InterventionContentProps) {
       className="flex min-h-0 flex-1 flex-col overflow-hidden p-6"
       aria-labelledby="intervention-title"
     >
-      <header className="mb-4 flex shrink-0 items-center justify-between gap-4">
-        <div>
-          <Link
-            to="/interrogatorios"
-            className="text-sm font-medium text-slate-500 hover:text-red-700"
-          >
-            ← Volver a intervenciones
-          </Link>
+      <header className="mb-4 grid shrink-0 grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <Link
+          to="/interrogatorios"
+          className={
+            'justify-self-start text-sm text-slate-200 transition-colors ' +
+            'hover:text-[15px] hover:text-white'
+          }
+        >
+          ← Volver a intervenciones
+        </Link>
 
-          <h1
-            id="intervention-title"
-            className="mt-1 text-2xl font-semibold text-slate-900"
-          >
-            {intervention.title}
-          </h1>
-        </div>
+        <h1
+          id="intervention-title"
+          className="text-center text-2xl font-semibold text-white"
+        >
+          {intervention.title}
+        </h1>
 
-        <div className="flex flex-wrap items-center justify-end gap-4">
-          <LocationPanel
-            address={address}
-            onAddressChange={setAddress}
-          />
-
+        <div className="flex flex-wrap items-center justify-self-end gap-4">
           <SpecialInterventionsButton />
 
           <AlarmLevelIndicator
@@ -93,7 +89,7 @@ function InterventionContent({ intervention }: InterventionContentProps) {
         </div>
       </header>
 
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 overflow-hidden lg:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)]">
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 overflow-hidden lg:grid-cols-[minmax(0,2fr)_minmax(20rem,1fr)]">
         <QuestionsPanel
           questions={visibleQuestions}
           answers={answers}
@@ -101,6 +97,11 @@ function InterventionContent({ intervention }: InterventionContentProps) {
         />
 
         <div className="flex min-h-0 flex-col gap-4 overflow-hidden">
+          <LocationPanel
+            address={address}
+            onAddressChange={setAddress}
+          />
+
           <AdvicePanel advice={activeAdvice} />
 
           <DocumentsPanel documents={intervention.documents} />
@@ -109,7 +110,6 @@ function InterventionContent({ intervention }: InterventionContentProps) {
 
       {isSheetModalOpen && (
         <InterventionSheetModal
-          title={intervention.title}
           alarmLevel={alarmLevel}
           imageSrc={sheetImageSrc}
           onClose={() => setIsSheetModalOpen(false)}

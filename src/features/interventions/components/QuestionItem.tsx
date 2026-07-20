@@ -10,14 +10,11 @@ interface QuestionItemProps {
 export function QuestionItem({ question, selectedOptionId, onSelect }: QuestionItemProps) {
   return (
     <div
-      className={'grid items-center gap-4 rounded-lg border border-slate-200 bg-white p-4 md:grid-cols-[minmax(12rem,1fr)_auto]'}
+      className={'grid items-center gap-4 rounded-lg text-white border-2 border-slate-700 p-4 md:grid-cols-[minmax(12rem,1fr)_auto] bg-slate-950'}
       role="group"
       aria-labelledby={`question-${question.id}`}
     >
-      <p
-        id={`question-${question.id}`}
-        className="font-semibold text-slate-900"
-      >
+      <p id={`question-${question.id}`}>
         {question.text}
       </p>
 
@@ -32,7 +29,7 @@ export function QuestionItem({ question, selectedOptionId, onSelect }: QuestionI
               className={'rounded-md border px-4 py-2 text-sm font-semibold transition-colors ' +
                 (isSelected
                   ? 'border-red-700 bg-red-700 text-white'
-                  : 'border-slate-300 bg-white text-slate-700 hover:border-red-400 hover:text-red-700')
+                  : 'border-slate-300 bg-white text-slate-700 hover:border-red-400 hover:bg-red-700 hover:text-white')
               }
               aria-pressed={isSelected}
               onClick={() => onSelect(question.id, option.id)}

@@ -16,18 +16,15 @@ export function DocumentsPanel({ documents }: DocumentsPanelProps) {
 
   return (
     <section
-      className={
-        'flex max-h-[calc(50%-0.5rem)] min-h-0 flex-col overflow-hidden ' +
-        'rounded-lg border border-slate-200 bg-white'
-      }
+      className="flex max-h-[calc(50%-0.5rem)] min-h-0 flex-col overflow-hidden rounded-lg border-2 border-slate-600 bg-slate-900"
       aria-labelledby="documents-title"
     >
-      <header className="shrink-0 border-b border-slate-200 px-4 py-3">
+      <header className="shrink-0 border-b-2 border-slate-600 px-4 py-3">
         <h2
           id="documents-title"
-          className="font-semibold text-slate-900"
+          className="font-semibold text-white text-center"
         >
-          Documentos
+          Enlaces
         </h2>
       </header>
 
@@ -38,11 +35,8 @@ export function DocumentsPanel({ documents }: DocumentsPanelProps) {
             href={resolveTarget(document)}
             target="_blank"
             rel="noopener noreferrer"
-            className={
-              'block rounded-md border border-slate-200 px-3 py-2 ' +
-              'text-sm font-semibold text-cyan-800 transition-colors ' +
-              'hover:border-cyan-400 hover:bg-cyan-50'
-            }
+            className="block rounded-md border-2 border-slate-500 bg-slate-950 px-3 py-2 text-sm font-semibold text-white text-center
+              transition-colors hover:border-cyan-500 hover:bg-cyan-900"
           >
             {document.title}
           </a>

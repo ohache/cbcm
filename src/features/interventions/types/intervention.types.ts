@@ -54,6 +54,7 @@ export interface InterventionDocument {
 export interface Intervention {
   id: string
   title: string
+  icon: string
   initialAlarmLevel: AlarmLevel
   schemaVersion: number
   questions: InterventionQuestion[]

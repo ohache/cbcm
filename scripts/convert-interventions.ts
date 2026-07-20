@@ -60,6 +60,7 @@ interface DocumentRow {
 interface InterventionFile {
   id: string
   title: string
+  icon: string
   initialAlarmLevel: AlarmLevel
   schemaVersion: number
   questions: Array<{
@@ -105,6 +106,7 @@ interface InterventionFile {
 interface InterventionSummary {
   id: string
   title: string
+  icon: string
 }
 
 /**
@@ -301,8 +303,6 @@ async function loadWorkbook(filePath: string): Promise<ExcelJS.Workbook> {
 
   await workbook.xlsx.load(excelBuffer)
 
-
-
   return workbook
 }
 
@@ -445,6 +445,7 @@ async function convertWorkbook(filePath: string): Promise<InterventionFile> {
   return {
     id: requiredText(metadata.get('id'), 'Metadatos.id'),
     title: requiredText(metadata.get('titulo'), 'Metadatos.titulo'),
+    icon: requiredText(metadata.get('icono'), 'Metadatos.icono'),
     initialAlarmLevel: parseAlarmLevel(
       metadata.get('alarmaInicial'),
       'Metadatos.alarmaInicial',
@@ -537,6 +538,7 @@ async function main(): Promise<void> {
       catalog.push({
         id: intervention.id,
         title: intervention.title,
+        icon: intervention.icon,
       })
 
       const outputPath = path.join(

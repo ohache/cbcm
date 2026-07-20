@@ -1,6 +1,7 @@
 [
   {
     "id": "incendio-vivienda",
-    "title": "Incendio en vivienda"
+    "title": "Incendio en vivienda",
+    "icon": "house"
   }
 ]

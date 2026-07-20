@@ -1,6 +1,7 @@
 {
   "id": "incendio-vivienda",
   "title": "Incendio en vivienda",
+  "icon": "house",
   "initialAlarmLevel": 1,
   "schemaVersion": 1,
   "questions": [

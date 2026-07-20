@@ -10,10 +10,13 @@ export function AdvicePanel({ advice }: AdvicePanelProps) {
 
   return (
     <section
-      className={'flex max-h-[calc(50%-0.5rem)] min-h-0 flex-col overflow-hidden rounded-lg border border-slate-200 bg-white'}
+      className={'flex max-h-[calc(50%-0.5rem)] min-h-0 flex-col overflow-hidden rounded-lg border-2 border-slate-600 bg-slate-900'}
     >
-      <header className="shrink-0 border-b border-slate-200 px-4 py-3">
-        <h2 id="advice-title" className="font-semibold text-slate-900">
+      <header className="shrink-0 border-b-2 border-slate-600 px-4 py-3">
+        <h2 
+          id="advice-title" 
+          className="font-semibold text-white text-center"
+        >
           Consejos
         </h2>
       </header>
@@ -24,7 +27,7 @@ export function AdvicePanel({ advice }: AdvicePanelProps) {
             key={item.id}
             className="rounded-md border border-amber-200 bg-amber-50 p-3"
           >
-            <h3 className="text-sm font-semibold text-amber-900">
+            <h3 className="text-sm font-semibold text-amber-900 text-center border-b border-amber-800">
               {item.title}
             </h3>
 

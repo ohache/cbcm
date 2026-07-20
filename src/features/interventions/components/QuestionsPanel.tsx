@@ -11,12 +11,12 @@ interface QuestionsPanelProps {
 export function QuestionsPanel({ questions, answers, onSelectAnswer }: QuestionsPanelProps) {
   return (
     <section
-      className={'flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50'}
+      className={'flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border-2 border-slate-600 bg-slate-90'}
     >
-      <header className="shrink-0 border-b border-slate-200 bg-white px-4 py-3">
+      <header className="shrink-0 border-b-2 border-slate-600 bg-slate-900 px-4 py-3">
         <h2
           id="questions-title"
-          className="font-semibold text-[18px] text-slate-900 text-center"
+          className="font-semibold text-[18px] text-white text-center"
         >
           Preguntas
         </h2>
@@ -34,7 +34,7 @@ export function QuestionsPanel({ questions, answers, onSelectAnswer }: Questions
             />
           ))
         ) : (
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-200">
             No hay preguntas disponibles.
           </p>
         )}
